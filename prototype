@@ -1,0 +1,41 @@
+// var directin = .1;
+
+// var angle =0;
+// var radius =0;
+var splash;
+
+function preload() {
+  soundFormats('mp3');
+  dance = loadSound('dance.mp3');
+}
+var tripped = false
+function setup() {
+  createCanvas(600, 600);
+  // radius = width/2;
+}
+
+function draw() {
+ // background(255);
+
+  if (mouseX > height/3) {
+    background(255,2);
+  fill(random(255),random(255),random(255));
+  if (tripped == false)
+    dance.play()
+    tripped = true;
+  }
+
+  if (mouseX < height/3) {
+    background(0);
+    fill(255);
+    dance.stop()
+    tripped = false;
+
+  }
+  // angle = angle + 2*PI/120;
+  // var x = radius*cos(angle) + width/2;
+
+  // var y = radius*sin(angle) + height/2;
+  ellipse(mouseX,mouseY,50, 80);
+  // radius = radius -.1;
+}
